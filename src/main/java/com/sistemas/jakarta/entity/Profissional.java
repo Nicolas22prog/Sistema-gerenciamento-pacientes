@@ -29,6 +29,11 @@ public class Profissional {
         this.dataCriacao = dataCriacao;
     }
 
+    public Profissional() {
+    }
+
+    
+    
     public Long getId() {
         return id;
     }
