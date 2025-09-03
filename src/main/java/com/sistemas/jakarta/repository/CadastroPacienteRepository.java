@@ -1,15 +1,17 @@
 package com.sistemas.jakarta.repository;
 
 import com.sistemas.jakarta.entity.Paciente;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import java.util.Optional;
 
 
 /**
  * @author Nicolas
  */
-
+@ApplicationScoped
 public class CadastroPacienteRepository {
         
     @PersistenceContext(unitName = "GerenciadorPacientePU")
@@ -23,6 +25,7 @@ public class CadastroPacienteRepository {
                 .findFirst();
     }
     
+    @Transactional
     public void salvarPaciente(Paciente paciente){
         em.persist(paciente);
     }

@@ -3,13 +3,14 @@ package com.sistemas.jakarta.service;
 import com.sistemas.jakarta.dtos.CreatePacienteDTO;
 import com.sistemas.jakarta.entity.Paciente;
 import com.sistemas.jakarta.repository.CadastroPacienteRepository;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 
 /**
  * @author Nicolas
  */
-
+@ApplicationScoped
 public class CadastroPacienteService {
 
     @Inject
