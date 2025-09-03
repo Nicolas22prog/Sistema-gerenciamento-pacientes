@@ -1,19 +1,14 @@
-package com.sistemas.jakarta.entity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+package com.sistemas.jakarta.dtos;
+
 import java.time.OffsetDateTime;
 
-@Entity
-@Table(name = "paciente")
-public class Paciente {
 
+/**
+ * @author Nicolas
+ */
+
+public class CreatePacienteDTO {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String nome;
     private Long cpf;
     private String endereco;
@@ -21,7 +16,10 @@ public class Paciente {
     private OffsetDateTime dataNasc;
     private OffsetDateTime dataInicio;
 
-    public Paciente(String nome, Long cpf, String endereco, String email, OffsetDateTime dataNasc, OffsetDateTime dataInicio) {
+    public CreatePacienteDTO() {
+    }
+
+    public CreatePacienteDTO(String nome, Long cpf, String endereco, String email, OffsetDateTime dataNasc, OffsetDateTime dataInicio) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -30,66 +28,55 @@ public class Paciente {
         this.dataInicio = dataInicio;
     }
 
-    public Paciente() {
-    }
     
     
-
-    public Long getId() {
-        return id;
-    }
-
     public String getNome() {
         return nome;
-    }
-
-    public Long getCpf() {
-        return cpf;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public OffsetDateTime getDataNasc() {
-        return dataNasc;
-    }
-
-    public OffsetDateTime getDataInicio() {
-        return dataInicio;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    public Long getCpf() {
+        return cpf;
+    }
+
     public void setCpf(Long cpf) {
         this.cpf = cpf;
+    }
+
+    public String getEndereco() {
+        return endereco;
     }
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public OffsetDateTime getDataNasc() {
+        return dataNasc;
     }
 
     public void setDataNasc(OffsetDateTime dataNasc) {
         this.dataNasc = dataNasc;
     }
 
+    public OffsetDateTime getDataInicio() {
+        return dataInicio;
+    }
+
     public void setDataInicio(OffsetDateTime dataInicio) {
         this.dataInicio = dataInicio;
     }
     
-     
+    
 }

@@ -28,22 +28,9 @@
     <dependencies>
         <dependency>
             <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-web-api</artifactId>
-            <version>${jakartaee-api.version}</version>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>10.0.0</version>
             <scope>provided</scope>
-        </dependency>
-        <!-- Embedded Jakarta EE runtime -->
-        <dependency>
-            <groupId>fish.payara.extras</groupId>
-            <artifactId>payara-micro</artifactId>
-            <version>${payara.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-    <groupId>jakarta.persistence</groupId>
-    <artifactId>jakarta.persistence-api</artifactId>
-    <version>3.0.0</version>
-            <type>jar</type>
         </dependency>
     </dependencies>
 
@@ -62,27 +49,6 @@
             </plugin>
 
             <!-- Execute 'mvn clean package payara-micro:start' to run the application. -->
-            <plugin>
-                <groupId>fish.payara.maven.plugins</groupId>
-                <artifactId>payara-micro-maven-plugin</artifactId>
-                <version>${payara-micro-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <artifactItem>
-                        <groupId>fish.payara.extras</groupId>
-                        <artifactId>payara-micro</artifactId>
-                        <version>${payara.version}</version>
-                    </artifactItem>
-                    <deployWar>true</deployWar>
-                    <contextRoot>/</contextRoot>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 </project>
