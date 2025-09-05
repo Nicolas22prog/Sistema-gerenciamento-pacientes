@@ -5,6 +5,7 @@ import com.sistemas.jakarta.entity.Paciente;
 import com.sistemas.jakarta.repository.CadastroPacienteRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import java.util.Optional;
 
 
 /**
@@ -21,11 +22,18 @@ public class CadastroPacienteService {
             throw new Exception("Dados do paciente precisam ser preenchidos!");
         }
         
+        Optional<Paciente> exist = pacienteRepository.findByCpf(request.getCpf());
+        
+        if(exist.isPresent()){
+            throw new Exception("paceinte ja cadastrado!");
+        }
+        
         Paciente paciente = new Paciente();
         
         paciente.setNome(request.getNome());
         paciente.setCpf(request.getCpf());
         paciente.setEndereco(request.getEndereco());
+        paciente.setEmail(request.getEmail());
         paciente.setDataNasc(request.getDataNasc());
         paciente.setDataInicio(request.getDataInicio());
         pacienteRepository.salvarPaciente(paciente);
