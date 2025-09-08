@@ -32,6 +32,16 @@
             <version>${jakartaee-api.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>mirage-theme</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>15.0.7</version>
+        </dependency>
         <!-- Embedded Jakarta EE runtime -->
         <dependency>
             <groupId>fish.payara.extras</groupId>
@@ -40,9 +50,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-    <groupId>jakarta.persistence</groupId>
-    <artifactId>jakarta.persistence-api</artifactId>
-    <version>3.0.0</version>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.0.0</version>
             <type>jar</type>
         </dependency>
     </dependencies>
