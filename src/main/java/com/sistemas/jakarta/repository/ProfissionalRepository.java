@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -31,5 +32,27 @@ public class ProfissionalRepository implements Serializable {
         em.persist(profissional);
         em.flush(); // força INSERT imediato
         return profissional;
+    }
+
+    public List<Profissional> buscarTodos() {
+        return em.createQuery("SELECT p FROM Profissional p", Profissional.class)
+                .getResultList();
+    }
+
+    @Transactional
+    public Profissional atualizarProfissional(Profissional profissional) {
+        return em.merge(profissional);
+    }
+
+    @Transactional
+    public void apagarProfissional(Long id) {
+        Profissional profissional = em.find(Profissional.class, id);
+        if (profissional != null) {
+            em.remove(profissional);
+        }
+    }
+
+    public Optional<Profissional> buscarPorId(Long id) {
+        return Optional.ofNullable(em.find(Profissional.class, id));
     }
 }
