@@ -17,5 +17,6 @@ Any value defined here will override the pom.xml file value but is only applicab
         <org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>pfv5ee8</org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>
         <org-netbeans-modules-payara-micro.hotDeploy>false</org-netbeans-modules-payara-micro.hotDeploy>
         <org-netbeans-modules-payara-micro.version/>
+        <org-netbeans-modules-html-editor-lib.default-xhtml-public-id>XHTML5</org-netbeans-modules-html-editor-lib.default-xhtml-public-id>
     </properties>
 </project-shared-configuration>
