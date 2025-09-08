@@ -26,6 +26,11 @@ public class Evolucao {
         this.dataEvolução = dataEvolução;
     }
 
+    public Evolucao() {
+    }
+
+    
+    
     public Long getId() {
         return id;
     }

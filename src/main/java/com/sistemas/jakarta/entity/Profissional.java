@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "proficional")
+@Table(name = "profissional")
 public class Profissional {
     
     @Id
@@ -29,6 +29,11 @@ public class Profissional {
         this.dataCriacao = dataCriacao;
     }
 
+    public Profissional() {
+    }
+
+    
+    
     public Long getId() {
         return id;
     }
