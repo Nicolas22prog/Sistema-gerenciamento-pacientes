@@ -55,4 +55,12 @@ public class ProfissionalRepository implements Serializable {
     public Optional<Profissional> buscarPorId(Long id) {
         return Optional.ofNullable(em.find(Profissional.class, id));
     }
+
+    public Optional<Profissional> buscarProfissionalPorId(Long profissionalId) {
+       return em.createQuery("SELECT p FROM Profissional p WHERE p.id =:profissionalId",Profissional.class)
+                .setParameter("profissionalId", profissionalId)
+                .setMaxResults(1)
+                .getResultStream()
+                .findFirst();
+    }
 }

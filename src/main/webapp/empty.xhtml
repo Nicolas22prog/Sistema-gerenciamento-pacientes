@@ -4,7 +4,7 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/template.xhtml">
-                
+
     <ui:define name="title">Empty Page</ui:define>
 
     <ui:define name="viewname">
@@ -16,13 +16,53 @@
     <ui:define name="content">
         <div class="grid">
             <div class="col-12">
+                <div class="col-12 md:col-6">
+                    
+                    <div class="ui-fluid">
                 <div class="card">
-                    <h4>Empty Page</h4>
-                    <p>This is your empty page template to start building beautiful applications.</p>
+                    <h:form id="pacientForm">
+                        <p:panel header="Cadastro de Paciente">
+                
+                            <div class="field">
+
+                                <p:outputLabel for="nome" value="Nome:" />
+                                <p:inputText id="nome" value="#{pacienteBean.paciente.nome}" required="true" />
+                            </div>
+                            <div class="field">
+
+                                <p:outputLabel for="cpf" value="CPF:" />
+                                <p:inputText id="cpf" value="#{pacienteBean.paciente.cpf}" required="true" />
+                            </div>
+                            
+                            <div class="field">
+                                
+                                <p:outputLabel for="dataNasc" value="Data de Nascimento:"/>
+                                <p:datePicker id="dataNasc" value="#{pacienteBean.paciente.dataNasc}"/>
+                                
+                            </div>
+   
+                            <div class="field">
+                                
+                            <p:outputLabel for="email" value="E-mail:" />
+                            <p:inputText id="email" value="#{pacienteBean.paciente.email}" />
+                            </div>
+                                
+
+                            <div class="field">
+                            <p:outputLabel for="endereco" value="Endereço:" />
+                            <p:inputTextarea id="endereco" value="#{pacienteBean.paciente.endereco}" autoResize="true" />
+                            </div>
+
+                            <p:commandButton styleClass="mr-2 mb-2" value="Salvar" action="#{pacienteBean.salvar}" update="@form" icon="pi pi-check" />
+
+                        </p:panel>
+                    </h:form>
                 </div>
+                        </div>
             </div>
         </div>
-        
+
+            </div>
     </ui:define>
 
 </ui:composition>

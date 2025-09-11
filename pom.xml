@@ -38,7 +38,7 @@
             <artifactId>mirage-theme</artifactId>
             <version>5.0.0</version>
         </dependency>
-               <dependency>
+        <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>13.0.0</version>
@@ -61,6 +61,28 @@
             <artifactId>jakarta.persistence-api</artifactId>
             <version>3.0.0</version>
             <type>jar</type>
+        </dependency>
+        <!-- MicroProfile Rest Client -->
+        <dependency>
+            <groupId>org.eclipse.microprofile.rest.client</groupId>
+            <artifactId>microprofile-rest-client-api</artifactId>
+            <version>3.0</version>
+        </dependency>
+
+        <!-- JSON Processing -->
+        <dependency>
+            <groupId>jakarta.json</groupId>
+            <artifactId>jakarta.json-api</artifactId>
+            <version>2.1.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Bean Validation (JSR 380) -->
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>3.0.2</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
