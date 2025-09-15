@@ -15,7 +15,6 @@ import java.io.Serializable;
 public class PacienteController implements Serializable {
 
     @Inject
-    
     private CadastroPacienteService pacienteApiClient;
 
     private CreatePacienteDTO paciente = new CreatePacienteDTO();

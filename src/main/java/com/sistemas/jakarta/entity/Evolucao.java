@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.time.OffsetDateTime;
 
@@ -15,9 +17,17 @@ public class Evolucao {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
+    
+    @OneToMany
+    @JoinColumn(name="pacinete_id")
     private Paciente pacienteId;
+    
+    @OneToMany
+    @JoinColumn(name="profissional_id")
     private Profissional profissionalId;
+    
     private OffsetDateTime dataEvolução;
+    
 
     public Evolucao(Long id, Paciente pacienteId, Profissional profissionalId, OffsetDateTime dataEvolução) {
         this.id = id;

@@ -18,12 +18,20 @@ public class CadastroPacienteRepository {
     private EntityManager em;
 
     // Buscar paciente por CPF
-    public Optional<Paciente> findByCpf(Long cpf) {
+    public Optional<Paciente> findByCpf(String cpf) {
         return em.createQuery("SELECT p FROM Paciente p WHERE p.cpf = :cpf", Paciente.class)
                 .setParameter("cpf", cpf)
                 .setMaxResults(1)
                 .getResultStream()
                 .findFirst();
+    }
+    
+    public Optional<Paciente> findByID(Long id){
+        return em.createQuery("SELECT p FROM Paciente p WHERE p.id = :id", Paciente.class)
+                .setParameter("id", id)
+                .setMaxResults(1)
+                .getResultStream()
+                .findFirst();                
     }
 
     // Buscar todos os pacientes
@@ -49,7 +57,7 @@ public class CadastroPacienteRepository {
 
     // Deletar paciente por CPF
     @Transactional
-    public void removePaciente(Long cpf) {
+    public void removePaciente(String cpf) {
         em.createQuery("DELETE FROM Paciente p WHERE p.cpf = :cpf")
                 .setParameter("cpf", cpf)
                 .executeUpdate();

@@ -4,7 +4,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "paciente")
@@ -15,13 +15,13 @@ public class Paciente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private Long cpf;
+    private String cpf;
     private String endereco;
     private String email;
-    private OffsetDateTime dataNasc;
-    private OffsetDateTime dataInicio;
+    private LocalDate dataNasc;
+    private LocalDate dataInicio;
 
-    public Paciente(String nome, Long cpf, String endereco, String email, OffsetDateTime dataNasc, OffsetDateTime dataInicio) {
+    public Paciente(String nome, String cpf, String endereco, String email, LocalDate dataNasc, LocalDate dataInicio) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -33,8 +33,7 @@ public class Paciente {
     public Paciente() {
     }
     
-    
-
+   
     public Long getId() {
         return id;
     }
@@ -43,7 +42,7 @@ public class Paciente {
         return nome;
     }
 
-    public Long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
@@ -55,11 +54,11 @@ public class Paciente {
         return email;
     }
 
-    public OffsetDateTime getDataNasc() {
+    public LocalDate getDataNasc() {
         return dataNasc;
     }
 
-    public OffsetDateTime getDataInicio() {
+    public LocalDate getDataInicio() {
         return dataInicio;
     }
 
@@ -71,7 +70,7 @@ public class Paciente {
         this.nome = nome;
     }
 
-    public void setCpf(Long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -83,11 +82,11 @@ public class Paciente {
         this.email = email;
     }
 
-    public void setDataNasc(OffsetDateTime dataNasc) {
+    public void setDataNasc(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
     }
 
-    public void setDataInicio(OffsetDateTime dataInicio) {
+    public void setDataInicio(LocalDate dataInicio) {
         this.dataInicio = dataInicio;
     }
     

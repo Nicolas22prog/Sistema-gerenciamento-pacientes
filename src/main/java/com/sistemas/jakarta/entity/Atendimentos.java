@@ -1,16 +1,22 @@
 package com.sistemas.jakarta.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
 /**
  * @author Nicolas
  */
+@Entity
+@Table(name ="atendimentos")
+
 public class Atendimentos {
 
     @Id
@@ -30,6 +36,10 @@ public class Atendimentos {
 
     @Column(length = 255)
     private String descricao;
+    
+    @OneToOne
+    @JoinColumn(name = "evolucao_id")
+    private Evolucao evoluca_id;
 
     public Atendimentos() {
     }
@@ -77,4 +87,14 @@ public class Atendimentos {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public Evolucao getEvoluca_id() {
+        return evoluca_id;
+    }
+
+    public void setEvoluca_id(Evolucao evoluca_id) {
+        this.evoluca_id = evoluca_id;
+    }
+    
+    
 }
