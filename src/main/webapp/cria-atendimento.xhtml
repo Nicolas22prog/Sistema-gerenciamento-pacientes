@@ -17,8 +17,38 @@
         <div class="grid">
             <div class="col-12">
                 <div class="card">
-                    <h4>Empty Page</h4>
-                    <p>This is your empty page template to start building beautiful applications.</p>
+                    <h:form id="pacientForm">
+                        <p:panel header="Cadastro de Paciente">
+                
+                            <div class="field">
+
+                                <p:outputLabel for="nome" value="Id:" />
+                                <p:inputText id="nome" value="#{criarAtendimentoController.atendimento.pacienteId}" required="true" />
+                            </div>
+                            <div class="field">
+
+                                <p:outputLabel for="cpf" value="CPF:" />
+                                <p:inputText id="cpf" value="#{criarAtendimentoController.atendimento.profissionalId}" required="true" />
+                            </div>
+                            
+                            <div class="field">
+                                
+                                <p:outputLabel for="dataNasc" value="Data de Nascimento:"/>
+                                <p:datePicker id="dataNasc" value="#{criarAtendimentoController.atendimento.dataHora}"/>
+                                
+                            </div>
+   
+                            <div class="field">
+                                
+                            <p:outputLabel for="email" value="E-mail:" />
+                            <p:inputTextarea rows="6" cols="33" id="email" value="#{criarAtendimentoController.atendimento.descricao}" />
+                            </div>
+                            
+
+                            <p:commandButton styleClass="mr-2 mb-2" value="Salvar" action="#{crearAtendimentoController.salvar}" update="@form" icon="pi pi-check" />
+
+                        </p:panel>
+                    </h:form>
                 </div>
             </div>
         </div>
