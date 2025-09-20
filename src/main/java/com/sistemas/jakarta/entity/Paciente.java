@@ -1,27 +1,38 @@
 package com.sistemas.jakarta.entity;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "paciente")
 public class Paciente {
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
-    private Long cpf;
+    private String cpf;
     private String endereco;
     private String email;
-    private OffsetDateTime dataNasc;
-    private OffsetDateTime dataInicio;
+    private LocalDate dataNasc;
+    private LocalDate dataInicio;
 
-    public Paciente(String nome, Long cpf, String endereco, String email, OffsetDateTime dataNasc, OffsetDateTime dataInicio) {
+    @OneToMany(mappedBy = "paciente")
+    private List<Atendimentos> atendimentos;
+
+    @OneToMany(mappedBy = "paciente")
+    private List<Evolucao> evolucoes;
+
+    public Paciente() {}
+
+    public Paciente(String nome, String cpf, String endereco, String email, LocalDate dataNasc, LocalDate dataInicio) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -30,66 +41,31 @@ public class Paciente {
         this.dataInicio = dataInicio;
     }
 
-    public Paciente() {
-    }
-    
-    
+    // Getters e Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public Long getId() {
-        return id;
-    }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
-    public String getNome() {
-        return nome;
-    }
+    public String getCpf() { return cpf; }
+    public void setCpf(String cpf) { this.cpf = cpf; }
 
-    public Long getCpf() {
-        return cpf;
-    }
+    public String getEndereco() { return endereco; }
+    public void setEndereco(String endereco) { this.endereco = endereco; }
 
-    public String getEndereco() {
-        return endereco;
-    }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
-    public String getEmail() {
-        return email;
-    }
+    public LocalDate getDataNasc() { return dataNasc; }
+    public void setDataNasc(LocalDate dataNasc) { this.dataNasc = dataNasc; }
 
-    public OffsetDateTime getDataNasc() {
-        return dataNasc;
-    }
+    public LocalDate getDataInicio() { return dataInicio; }
+    public void setDataInicio(LocalDate dataInicio) { this.dataInicio = dataInicio; }
 
-    public OffsetDateTime getDataInicio() {
-        return dataInicio;
-    }
+    public List<Atendimentos> getAtendimentos() { return atendimentos; }
+    public void setAtendimentos(List<Atendimentos> atendimentos) { this.atendimentos = atendimentos; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setCpf(Long cpf) {
-        this.cpf = cpf;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setDataNasc(OffsetDateTime dataNasc) {
-        this.dataNasc = dataNasc;
-    }
-
-    public void setDataInicio(OffsetDateTime dataInicio) {
-        this.dataInicio = dataInicio;
-    }
-    
-     
+    public List<Evolucao> getEvolucoes() { return evolucoes; }
+    public void setEvolucoes(List<Evolucao> evolucoes) { this.evolucoes = evolucoes; }
 }

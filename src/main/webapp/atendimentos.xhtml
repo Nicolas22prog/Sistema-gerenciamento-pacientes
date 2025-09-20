@@ -17,8 +17,14 @@
         <div class="grid">
             <div class="col-12">
                 <div class="card">
-                    <h4>Empty Page</h4>
-                    <p>This is your empty page template to start building beautiful applications.</p>
+                    <p:dataTable value="#{antendimentoController.atendimentos}" var="a">
+                        <p:column headerText="Paciente">
+                            <h:outputText value="#{a.paciente.nome}"/>
+                        </p:column>
+                        <p:column headerText="Data">
+                            <h:outputText value="#{a.dataHora}"/>
+                        </p:column>
+                    </p:dataTable>
                 </div>
             </div>
         </div>

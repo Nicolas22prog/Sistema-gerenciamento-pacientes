@@ -1,6 +1,6 @@
 package com.sistemas.jakarta.dtos;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 
 
 /**
@@ -11,14 +11,14 @@ public class UpdatePacienteDTO {
 private String nome;
     private String endereco;
     private String email;
-    private OffsetDateTime dataNasc;
-    private OffsetDateTime dataInicio;
+    private LocalDate dataNasc;
+    private LocalDate dataInicio;
 
     public UpdatePacienteDTO() {
     }
 
     public UpdatePacienteDTO(String nome, String endereco, String email,
-                             OffsetDateTime dataNasc, OffsetDateTime dataInicio) {
+                             LocalDate dataNasc, LocalDate dataInicio) {
         this.nome = nome;
         this.endereco = endereco;
         this.email = email;
@@ -50,19 +50,19 @@ private String nome;
         this.email = email;
     }
 
-    public OffsetDateTime getDataNasc() {
+    public LocalDate getDataNasc() {
         return dataNasc;
     }
 
-    public void setDataNasc(OffsetDateTime dataNasc) {
+    public void setDataNasc(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
     }
 
-    public OffsetDateTime getDataInicio() {
+    public LocalDate getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(OffsetDateTime dataInicio) {
+    public void setDataInicio(LocalDate dataInicio) {
         this.dataInicio = dataInicio;
     }
 }

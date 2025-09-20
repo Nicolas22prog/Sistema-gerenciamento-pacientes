@@ -45,7 +45,7 @@ public class PacienteResource implements Serializable {
     @PUT
     @Path("/update/{cpf}")
     public Response atualizarPaciente(
-            @PathParam("cpf") Long cpf,
+            @PathParam("cpf") String cpf,
             @Valid UpdatePacienteDTO request) {
 
         try {
@@ -74,7 +74,7 @@ public class PacienteResource implements Serializable {
     // Deletar paciente
     @DELETE
     @Path("/delete/{cpf}")
-    public Response deletePaciente(@PathParam("cpf") Long cpf) throws Exception {
+    public Response deletePaciente(@PathParam("cpf") String cpf) throws Exception {
         pacienteService.deletarPaciente(cpf);
         JsonObject payload = Json.createObjectBuilder()
                 .add("mensagem", "Paciente removido com sucesso")
@@ -85,7 +85,7 @@ public class PacienteResource implements Serializable {
     // Buscar paciente por CPF
     @GET
     @Path("/{cpf}")
-    public Response getPaciente(@PathParam("cpf") Long cpf) throws Exception {
+    public Response getPaciente(@PathParam("cpf") String cpf) throws Exception {
         Optional<Paciente> pacienteOpt = pacienteService.buscarPacientePorCpf(cpf);
         if (pacienteOpt.isEmpty()) {
             return Response.status(Response.Status.NOT_FOUND)

@@ -29,7 +29,7 @@ public class AtendimentoService {
         Profissional profissional = profissionalRepository.buscarProfissionalPorId(dto.getProfissionalId())
                 .orElseThrow(() -> new Exception("Profissional não encontrado"));
 
-        Paciente paciente = pacienteRepository.findByCpf(dto.getPacienteId())
+        Paciente paciente = pacienteRepository.findByID(dto.getPacienteId())
                 .orElseThrow(() -> new Exception("Paciente não encontrado"));
 
         Atendimentos atendimento = new Atendimentos();

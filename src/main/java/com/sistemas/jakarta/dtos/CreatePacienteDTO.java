@@ -1,6 +1,6 @@
 package com.sistemas.jakarta.dtos;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 
 
 /**
@@ -10,16 +10,16 @@ import java.time.OffsetDateTime;
 public class CreatePacienteDTO {
     
     private String nome;
-    private Long cpf;
+    private String cpf;
     private String endereco;
     private String email;
-    private OffsetDateTime dataNasc;
-    private OffsetDateTime dataInicio;
+    private LocalDate dataNasc;
+    private LocalDate dataInicio;
 
     public CreatePacienteDTO() {
     }
 
-    public CreatePacienteDTO(String nome, Long cpf, String endereco, String email, OffsetDateTime dataNasc, OffsetDateTime dataInicio) {
+    public CreatePacienteDTO(String nome, String cpf, String endereco, String email, LocalDate dataNasc, LocalDate dataInicio) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -38,11 +38,11 @@ public class CreatePacienteDTO {
         this.nome = nome;
     }
 
-    public Long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -62,19 +62,19 @@ public class CreatePacienteDTO {
         this.email = email;
     }
 
-    public OffsetDateTime getDataNasc() {
+    public LocalDate getDataNasc() {
         return dataNasc;
     }
 
-    public void setDataNasc(OffsetDateTime dataNasc) {
+    public void setDataNasc(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
     }
 
-    public OffsetDateTime getDataInicio() {
+    public LocalDate getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(OffsetDateTime dataInicio) {
+    public void setDataInicio(LocalDate dataInicio) {
         this.dataInicio = dataInicio;
     }
     

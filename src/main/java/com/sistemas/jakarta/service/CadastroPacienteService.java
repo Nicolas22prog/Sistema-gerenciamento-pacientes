@@ -42,7 +42,7 @@ public class CadastroPacienteService {
     }
 
     // Atualizar paciente
-    public Paciente atualizarPaciente(Long cpf, UpdatePacienteDTO request) throws Exception {
+    public Paciente atualizarPaciente(String cpf, UpdatePacienteDTO request) throws Exception {
     Optional<Paciente> pacienteOpt = pacienteRepository.findByCpf(cpf);
     if (pacienteOpt.isEmpty()) {
         throw new Exception("Paciente não encontrado!");
@@ -60,7 +60,7 @@ public class CadastroPacienteService {
 }
 
     // Deletar paciente
-    public void deletarPaciente(Long cpf) throws Exception {
+    public void deletarPaciente(String cpf) throws Exception {
         Optional<Paciente> exist = pacienteRepository.findByCpf(cpf);
         if (exist.isEmpty()) {
             throw new Exception("Paciente não encontrado!");
@@ -69,7 +69,7 @@ public class CadastroPacienteService {
     }
 
     // Buscar paciente por CPF
-    public Optional<Paciente> buscarPacientePorCpf(Long cpf) {
+    public Optional<Paciente> buscarPacientePorCpf(String cpf) {
         return pacienteRepository.findByCpf(cpf);
     }
 

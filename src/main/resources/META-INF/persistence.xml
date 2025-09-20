@@ -7,7 +7,8 @@
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <shared-cache-mode>NONE</shared-cache-mode>
     <properties>
-      <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.MySQLPlatform"/>
+      <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.PostgreSQLPlatform"/>
+
       <property name="jakarta.persistence.schema-generation.database.action" value="create-or-extend-tables"/>
       <!--<property name="jakarta.persistence.schema-generation.create-script-source" value="create-db.sql"/> -->
       <property name="jakarta.persistence.sharedCache.mode" value="NONE"/>

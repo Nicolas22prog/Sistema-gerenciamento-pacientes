@@ -1,16 +1,18 @@
 package com.sistemas.jakarta.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
-/**
- * @author Nicolas
- */
+@Entity
+@Table(name ="atendimentos")
 public class Atendimentos {
 
     @Id
@@ -31,8 +33,11 @@ public class Atendimentos {
     @Column(length = 255)
     private String descricao;
 
-    public Atendimentos() {
-    }
+    @OneToOne
+    @JoinColumn(name = "evolucao_id")
+    private Evolucao evolucao;
+
+    public Atendimentos() {}
 
     public Atendimentos(Profissional profissional, Paciente paciente, LocalDateTime dataHora, String descricao) {
         this.profissional = profissional;
@@ -42,39 +47,21 @@ public class Atendimentos {
     }
 
     // Getters e Setters
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public Profissional getProfissional() {
-        return profissional;
-    }
+    public Profissional getProfissional() { return profissional; }
+    public void setProfissional(Profissional profissional) { this.profissional = profissional; }
 
-    public void setProfissional(Profissional profissional) {
-        this.profissional = profissional;
-    }
+    public Paciente getPaciente() { return paciente; }
+    public void setPaciente(Paciente paciente) { this.paciente = paciente; }
 
-    public Paciente getPaciente() {
-        return paciente;
-    }
+    public LocalDateTime getDataHora() { return dataHora; }
+    public void setDataHora(LocalDateTime dataHora) { this.dataHora = dataHora; }
 
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
+    public String getDescricao() { return descricao; }
+    public void setDescricao(String descricao) { this.descricao = descricao; }
 
-    public LocalDateTime getDataHora() {
-        return dataHora;
-    }
-
-    public void setDataHora(LocalDateTime dataHora) {
-        this.dataHora = dataHora;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+    public Evolucao getEvolucao() { return evolucao; }
+    public void setEvolucao(Evolucao evolucao) { this.evolucao = evolucao; }
 }

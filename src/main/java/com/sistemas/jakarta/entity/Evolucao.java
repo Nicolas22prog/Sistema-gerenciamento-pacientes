@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.OffsetDateTime;
 
@@ -11,58 +13,38 @@ import java.time.OffsetDateTime;
 @Table(name = "evolucao")
 public class Evolucao {
 
-    
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Paciente pacienteId;
-    private Profissional profissionalId;
-    private OffsetDateTime dataEvolução;
 
-    public Evolucao(Long id, Paciente pacienteId, Profissional profissionalId, OffsetDateTime dataEvolução) {
-        this.id = id;
-        this.pacienteId = pacienteId;
-        this.profissionalId = profissionalId;
-        this.dataEvolução = dataEvolução;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "paciente_id")
+    private Paciente paciente;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "profissional_id")
+    private Profissional profissional;
+
+    private OffsetDateTime dataEvolucao;
+
+    public Evolucao() {}
+
+    public Evolucao(Paciente paciente, Profissional profissional, OffsetDateTime dataEvolucao) {
+        this.paciente = paciente;
+        this.profissional = profissional;
+        this.dataEvolucao = dataEvolucao;
     }
 
-    public Evolucao() {
-    }
+    // Getters e Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    
-    
-    public Long getId() {
-        return id;
-    }
+    public Paciente getPaciente() { return paciente; }
+    public void setPaciente(Paciente paciente) { this.paciente = paciente; }
 
-    public Paciente getPacienteId() {
-        return pacienteId;
-    }
+    public Profissional getProfissional() { return profissional; }
+    public void setProfissional(Profissional profissional) { this.profissional = profissional; }
 
-    public Profissional getProfissionalId() {
-        return profissionalId;
-    }
-
-    public OffsetDateTime getDataEvolução() {
-        return dataEvolução;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setPacienteId(Paciente pacienteId) {
-        this.pacienteId = pacienteId;
-    }
-
-    public void setProfissionalId(Profissional profissionalId) {
-        this.profissionalId = profissionalId;
-    }
-
-    public void setDataEvolução(OffsetDateTime dataEvolução) {
-        this.dataEvolução = dataEvolução;
-    }
-    
-    
-    
+    public OffsetDateTime getDataEvolucao() { return dataEvolucao; }
+    public void setDataEvolucao(OffsetDateTime dataEvolucao) { this.dataEvolucao = dataEvolucao; }
 }
